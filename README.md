@@ -1,5 +1,5 @@
 ### Hi there 👋
-
+oi，我叫陈奕扬，家乡正是今年被台风“杜苏芮”直击的泉州，人懒
 <!--
 **Cyy1011/Cyy1011** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
