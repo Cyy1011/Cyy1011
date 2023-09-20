@@ -15,23 +15,16 @@ public class PlagiarismChecker {
         String answerFilePath = args[2];
 
         try {
-            // 读取原文和抄袭版论文的内容
             String originalText = readFile(originalFilePath);
             String plagiarizedText = readFile(plagiarizedFilePath);
-            
-            // 计算相似度
             double similarity = calculateSimilarity(originalText, plagiarizedText);
-            
-            // 将相似度写入答案文件
             writeResult(answerFilePath, similarity);
-            
             System.out.println("重复率计算完成！");
         } catch (IOException e) {
             System.out.println("发生错误：" + e.getMessage());
         }
     }
 
-    // 读取文件内容
     private static String readFile(String filePath) throws IOException {
         StringBuilder content = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -43,7 +36,6 @@ public class PlagiarismChecker {
         return content.toString();
     }
 
-    // 计算相似度
     private static double calculateSimilarity(String originalText, String plagiarizedText) {
         int originalLength = originalText.length();
         int plagiarizedLength = plagiarizedText.length();
@@ -68,7 +60,6 @@ public class PlagiarismChecker {
         return Math.round(similarity * 100.0) / 100.0; // 保留两位小数
     }
 
-    // 将相似度写入文件
     private static void writeResult(String filePath, double similarity) throws IOException {
         try (FileWriter writer = new FileWriter(filePath)) {
             writer.write(String.format("%.2f", similarity));
