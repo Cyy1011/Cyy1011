@@ -1,1 +1,17 @@
+import org.junit.Assert;
+import org.junit.Test;
 
+public class PlagiarismCheckerTest {
+    @Test
+    public void testCalculateSimilarity() {
+        // 构造测试数据
+        String originalText = "This is the original text.";
+        String plagiarizedText = "This is the plagiarized text.";
+        
+        // 调用被测试的函数
+        double similarity = PlagiarismChecker.calculateSimilarity(originalText, plagiarizedText);
+        
+        // 断言结果是否符合预期
+        Assert.assertEquals(71.43, similarity, 0.01);
+    }
+}
