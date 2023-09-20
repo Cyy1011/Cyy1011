@@ -1,17 +1,16 @@
-import org.junit.Assert;
-import org.junit.Test;
-
-public class PlagiarismCheckerTest {
-    @Test
-    public void testCalculateSimilarity() {
-        // 构造测试数据
-        String originalText = "This is the original text.";
-        String plagiarizedText = "This is the plagiarized text.";
+@Test
+public void testIOException() {
+    // 构造一个不存在的文件路径
+    String filePath = "nonexistentfile.txt";
+    
+    try {
+        // 调用 readFile 函数，应该抛出 IOException
+        PlagiarismChecker.readFile(filePath);
         
-        // 调用被测试的函数
-        double similarity = PlagiarismChecker.calculateSimilarity(originalText, plagiarizedText);
-        
-        // 断言结果是否符合预期
-        Assert.assertEquals(71.43, similarity, 0.01);
+        // 如果没有抛出异常，测试失败
+        Assert.fail("Expected IOException was not thrown.");
+    } catch (IOException e) {
+        // 检查异常的消息或其他属性，确保它符合预期
+        Assert.assertEquals("文件不存在", e.getMessage());
     }
 }
